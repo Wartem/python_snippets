@@ -2,6 +2,8 @@ import re
 from datetime import date
 import random
 import sys
+import requests
+import bs4
 
 class PySnippets:
 
@@ -156,6 +158,61 @@ class PySnippets:
         file.write("Hello World \n") 
         file.write("This is a new text file.") 
         file.close() 
+
+    def emailRegex(self):
+        email = "wartem@harward.edu"
+        ''' Regex: Exact start, a-z inc capital expected before @
+            and then a-z inc capital expected until the exact ending .edu '''
+        search_result = re.search("^[a-zA-Z0-9_]+@[a-zA-Z0-9_]+\.edu$", email)
+
+        if search_result:
+            print("search result found")
+        else:
+            print("search result not found")
             
+    def numbersToPrint(self):
+        try:
+            numbersToPrint = int(input("How many numbers to print? "))
+            for num in range(numbersToPrint):
+                print(num)
+        except:
+            print("You need to input a number")
+
+    def oddOrEven(self):
+        print("Odd or even number")
+        number = input("Enter a number ")
+
+        if re.search("^[0-9]+", number):
+            if int(number) % 2 == 0:
+                print("It's even!", sep="halla", end="\n")
+            else:
+                print("It's odd!")
+        else:
+            print(f"'{number}' is not a number")
+
+    ''' Create two lists and add numbers from one to the other '''
+    def addFromOtherList(self):
+        a = [5, 10, 15, 20, 25]
+
+        b = []
+        b.append(a[0])
+        b.append(a[len(a)-1])
+
+        print(b)
+
+    def findInfoOnSite(self, site):
+        base_url = site
+        r = requests.get(base_url)
+        soup = bs4.BeautifulSoup(r.text,features="html.parser")
+        
+        for container in soup.find_all(class_="container"): 
+            print(len(container))
+            if container.a: 
+                print(container.a.text.replace("\n", " ").strip())
+            else: 
+                print(container.contents[0].strip())
+        print("findInfoOnSite done")
+        
+
     
 

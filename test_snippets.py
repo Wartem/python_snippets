@@ -47,7 +47,14 @@ def main():
     #assert
     snippet.writeToFile()
 
+def RunOther():
+    snippet.findInfoOnSite("https://www.wartem.se")
+
 if __name__ == "__main__":
     if len(sys.argv) == 2:
-        print(sys.argv[1])
-    main()
+        if(sys.argv[1] == "2"):
+            RunOther()
+        else:
+            print("Unknown command")
+    else:
+        main()
