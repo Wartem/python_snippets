@@ -3,6 +3,8 @@
 import snippets
 import html_parser
 import sys
+import requests
+import bs4
 
 snippet = snippets.PySnippets()
 
@@ -50,7 +52,7 @@ def main():
 
 def RunOther():
     ''' snippet.emailRegex() '''
-    html_parser.findInfoOnSite("https://www.wartem.se")
+    html_parser.findInfoOnSite()
 
 if __name__ == "__main__":
     if len(sys.argv) == 2:
