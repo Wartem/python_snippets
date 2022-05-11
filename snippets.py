@@ -128,8 +128,10 @@ class PySnippets:
         """ \ escape char """
         """ ^ means start of string. """
         """ $ matches the end of the string or just before the newline at the end of the string. """
-
-        if re.search("^[a-zA-Z0-9_]+@[a-zA-Z0-9_]+\.edu$", email):
+        ''' re.match is same as re.search including ^ at the start '''
+        ''' re.fullmatch is same as re.match including $ at the end '''
+        ''' if re.search("^[a-zA-Z0-9_]+@[a-zA-Z0-9_]+\.edu$", email): '''
+        if re.search("^(\w|\.)+@(\w+\.)?\.edu$", email):
             print(f"{email} " + "is valid")
         else:
             print(f"{email} " + "is not valid")
@@ -163,7 +165,7 @@ class PySnippets:
         email = "wartem@harward.edu"
         ''' Regex: Exact start, a-z inc capital expected before @
             and then a-z inc capital expected until the exact ending .edu '''
-        search_result = re.search("^[a-zA-Z0-9_]+@[a-zA-Z0-9_]+\.edu$", email)
+        search_result = re.search("^/w+@[a-zA-Z0-9_]+\.edu$", email)
 
         if search_result:
             print("search result found")
