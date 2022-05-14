@@ -215,6 +215,49 @@ class PySnippets:
                 print(container.contents[0].strip())
         print("findInfoOnSite done")
         
+    def format(self):
+        name = input("Name? ").strip()
+        """ Walrus operator := """
+        if matches := re.search("^(.+), (.+)$", name):
+            """ if matches: """
+            last1 = matches.group(1)
+            first1 = matches.group(2)
+            last, first = matches.groups
+            name = f"{first} {last}"
+        print(f"hello, {name}")
+        
+    def twitterUsernameCheck(self):
+        url = input("URL: ").strip()
+        print(url)
+        username = url.replace("https://twitter.com/", "")
+        print(f"Username: {username}")
+        
+        username = url.removeprefix("https://twitter.com/")
+        print(f"Username: {username}")
+        
+        """ s is optional in https """
+        re.sub("^(https?://)?(www\.)?twitter\.com/", "", url)
+        print(f"Username: {username}")
+        
+        matches = re.search("^https?://(www\.)?twitter\.com/(.+)$")
+        if matches:
+            """ Prints "None" if no result is found """
+            print("Username: ", matches.group(2))
+            
+    def returnTurple():
+        return (input("Name?"), input("Age?"))
+    
+    def returnList():
+        return [input("Name?"), input("Age?")]
+    
+    def returnDictionary():
+        return {'name':input("Name?"), 'age':input("Age?")}
+    
+    
+        
+        
+        
+        
 
     
 
