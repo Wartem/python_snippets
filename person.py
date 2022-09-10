@@ -1,9 +1,5 @@
 class Person:
-    """ This class is a test representation of a person.
-    Reminders to self:
-    Check Pylint for clean code.
-    pycodestyle auto formats code
-    Black auto formats code"""
+    """ This class is a test representation of a person."""
 
     SPECIES = "Human"
 
@@ -38,7 +34,7 @@ class Person:
     def __str__(self):
         return f"{self.name} {self.age}"
 
-    """ Same for all objects/instances """
+    #Same for all objects/instances
 
     @classmethod
     def print_hey(cls):
@@ -71,4 +67,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+        main()

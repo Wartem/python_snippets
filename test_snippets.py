@@ -62,3 +62,27 @@ if __name__ == "__main__":
             print("Unknown command")
     else:
         main()
+
+def replace_last(line: list) -> list:
+    #return list[len(line)-1].append(l in line for l in range(len(line)-2))
+    #return list[len(line)-1].append(lambda x: x )
+    #[x for x in mylist if x%2 == 1]
+    #return list[len(line)-1].append(x for x[:len(line)-2]) in line
+    #return list(str(line[len(line)-1]))#.append([x for x in line[:-1]])
+    #return [x for x in line[:-1]]
+    #value_when_true if condition else value_when_false
+    return line if len(line) <= 1 else list(line[-1:]) + list(line[:len(line)-1])#+ [x for x in line[:-1]]
+
+def all_the_same(elements: List[Any]) -> bool:
+    for e in range(1, len(elements)):
+        if elements[e] != elements[e-1]:
+            return False
+    return True
+
+#var = [expression1] if [condition] else [expression2]
+#foo = [x for x in bar if x.occupants > 1]
+#[thing for thing in list_of_things] 
+
+#def all_the_same(elements: List[Any]) -> bool:
+    #"return e for e range(1, len(elements))
+    #return e for e in range(1, len(elements)) if elements[e] == elements[e-1]
